@@ -1,0 +1,235 @@
+/* ================================================
+   login.css — CineGibi | Página de Login
+   Tema: Gibi brasileiro, cartoon bold, alegre
+   ================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@700;800&family=Nunito:wght@400;600;700;800&display=swap');
+
+/* ---------- Variáveis ---------- */
+:root {
+  --vermelho:      #e8231a;
+  --vermelho-esc:  #b51a12;
+  --amarelo:       #ffd000;
+  --amarelo-esc:   #e6a800;
+  --azul:          #1565c0;
+  --azul-claro:    #1e88e5;
+  --branco:        #ffffff;
+  --preto:         #1a1a1a;
+  --borda-gibi:    4px solid #1a1a1a;
+  --sombra-gibi:   5px 5px 0px #1a1a1a;
+  --fonte-titulo:  'Baloo 2', cursive;
+  --fonte-corpo:   'Nunito', sans-serif;
+}
+
+/* ---------- Reset ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- Corpo com imagem de fundo ---------- */
+body {
+  min-height: 100vh;
+  font-family: var(--fonte-corpo);
+
+  /*
+    IMPORTANTE: salve a imagem que você mandou com o nome
+    "fundo-login.png" na mesma pasta que o index.php
+  */
+  background-image: url('fundo-login.png');
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
+  background-color: #ffd000; /* fallback se a imagem não carregar */
+  margin-left: 280px;
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+}
+
+/* Overlay escuro leve pra o card se destacar */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.2);
+  z-index: 0;
+}
+
+/* ---------- Card de login ---------- */
+.login-card {
+  position: relative;
+  z-index: 1;
+  background: var(--branco);
+  border: var(--borda-gibi);
+  border-radius: 20px;
+  box-shadow: var(--sombra-gibi);
+  width: 100%;
+  max-width: 400px;
+  overflow: hidden;
+  animation: pula 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+/* ---------- Cabeçalho vermelho do card ---------- */
+.login-logo {
+  background: var(--vermelho);
+  border-bottom: var(--borda-gibi);
+  padding: 1.5rem 2rem 1.2rem;
+  text-align: center;
+}
+
+.login-logo::after {
+  content: '★  ★  ★';
+  display: block;
+  color: var(--amarelo);
+  font-size: 0.9rem;
+  margin-top: 6px;
+  letter-spacing: 6px;
+}
+
+.login-logo .icone {
+  font-size: 2.4rem;
+  display: block;
+  margin-bottom: 4px;
+  filter: drop-shadow(2px 2px 0 var(--preto));
+}
+
+.login-logo h1 {
+  font-family: var(--fonte-titulo);
+  font-size: 2rem;
+  font-weight: 800;
+  color: var(--amarelo);
+  /* contorno estilo gibi */
+  text-shadow:
+     2px  2px 0 var(--preto),
+    -1px -1px 0 var(--preto),
+     1px -1px 0 var(--preto),
+    -1px  1px 0 var(--preto);
+  line-height: 1.1;
+}
+
+.login-logo p {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--branco);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-top: 4px;
+}
+
+/* ---------- Corpo do formulário ---------- */
+.login-body {
+  padding: 1.8rem 2rem 2rem;
+}
+
+/* ---------- Mensagem de erro ---------- */
+.msg-erro {
+  background: #fff0f0;
+  border: 3px solid var(--vermelho);
+  border-radius: 10px;
+  color: var(--vermelho-esc);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 10px 14px;
+  margin-bottom: 1.2rem;
+  text-align: center;
+  box-shadow: 3px 3px 0 var(--vermelho-esc);
+}
+
+/* ---------- Campos ---------- */
+form p {
+  margin-bottom: 1.1rem;
+}
+
+form label {
+  display: block;
+  font-size: 0.78rem;
+  font-weight: 800;
+  color: var(--preto);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"] {
+  width: 100%;
+  background: #fffde7;
+  border: 3px solid var(--preto);
+  border-radius: 10px;
+  padding: 11px 14px;
+  font-family: var(--fonte-corpo);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--preto);
+  outline: none;
+  box-shadow: 3px 3px 0 var(--preto);
+  transition: box-shadow 0.15s, transform 0.15s, border-color 0.15s;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+  border-color: var(--azul);
+  box-shadow: 3px 3px 0 var(--azul);
+  transform: translate(-1px, -1px);
+}
+
+form input::placeholder {
+  color: #bbb;
+  font-weight: 400;
+}
+
+/* ---------- Botão Entrar ---------- */
+form button[type="submit"] {
+  width: 100%;
+  background: var(--amarelo);
+  color: var(--preto);
+  border: 3px solid var(--preto);
+  border-radius: 10px;
+  padding: 13px;
+  font-family: var(--fonte-titulo);
+  font-size: 1.1rem;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: 4px 4px 0 var(--preto);
+  transition: box-shadow 0.1s, transform 0.1s, background 0.1s;
+  margin-top: 0.4rem;
+}
+
+form button[type="submit"]:hover {
+  background: var(--amarelo-esc);
+  box-shadow: 2px 2px 0 var(--preto);
+  transform: translate(2px, 2px);
+}
+
+form button[type="submit"]:active {
+  box-shadow: 0px 0px 0 var(--preto);
+  transform: translate(4px, 4px);
+}
+
+/* ---------- Rodapé ---------- */
+.login-footer {
+  text-align: center;
+  margin-top: 1.2rem;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: #bbb;
+  letter-spacing: 1px;
+}
+
+/* ---------- Animação de entrada ---------- */
+@keyframes pula {
+  from {
+    opacity: 0;
+    transform: scale(0.7) translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
