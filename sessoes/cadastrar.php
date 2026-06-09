@@ -49,7 +49,7 @@ if(isset($_POST['filme_id'])){
 </head>
 
 <body>
-<?php include("../navbar.php"); ?>
+
 <div class="container">
 
 <h1>🎥 Cadastrar Sessão</h1>

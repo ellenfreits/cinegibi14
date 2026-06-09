@@ -61,7 +61,7 @@ $sessao = $sql->fetch();
 </head>
 
 <body>
-<?php include("../navbar.php"); ?>
+
 <div class="container">
 
 <h1>✏️ Editar Sessão</h1>

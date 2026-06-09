@@ -13,4 +13,4 @@ $id = $_SESSION['id'];
 $nome = $_SESSION['nome'];
 $email = $_SESSION['email'];
 
-?>s
+?>
