@@ -1,0 +1,156 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+
+    font-family:'Comic Sans MS', sans-serif;
+
+    background:#ffd000;
+
+    min-height:100vh;
+
+    color:#222;
+}
+
+header{
+
+    background:#e8231a;
+
+    border-bottom:5px solid #111;
+
+    padding:20px 40px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+header h1{
+
+    color:#ffd000;
+
+    font-size:3rem;
+
+    text-shadow:3px 3px #111;
+}
+
+.btn-sair{
+
+    text-decoration:none;
+
+    background:white;
+
+    color:#e8231a;
+
+    padding:12px 20px;
+
+    border:3px solid #111;
+
+    border-radius:12px;
+
+    font-weight:bold;
+
+    box-shadow:4px 4px #111;
+}
+
+.btn-sair:hover{
+
+    transform:translateY(-3px);
+}
+
+main{
+
+    padding:40px;
+}
+
+.boas-vindas{
+
+    text-align:center;
+
+    margin-bottom:50px;
+}
+
+.boas-vindas h2{
+
+    font-size:3rem;
+
+    margin-bottom:10px;
+}
+
+.boas-vindas p{
+
+    font-size:1.2rem;
+}
+
+.cards{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+}
+
+.card{
+
+    width:260px;
+
+    padding:30px;
+
+    text-decoration:none;
+
+    color:#111;
+
+    border:4px solid #111;
+
+    border-radius:25px;
+
+    box-shadow:8px 8px #111;
+
+    text-align:center;
+
+    transition:.2s;
+}
+
+.card:hover{
+
+    transform:translate(-5px,-5px);
+}
+
+.card:nth-child(1){
+
+    background:#ff6666;
+}
+
+.card:nth-child(2){
+
+    background:#66c7ff;
+}
+
+.card:nth-child(3){
+
+    background:#8cff8c;
+}
+
+.icone{
+
+    font-size:5rem;
+
+    display:block;
+
+    margin-bottom:15px;
+}
+
+.card h3{
+
+    font-size:1.8rem;
+
+    margin-bottom:10px;
+}
