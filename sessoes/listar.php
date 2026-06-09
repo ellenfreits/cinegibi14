@@ -33,7 +33,7 @@ ORDER BY data_sessao
 </head>
 
 <body>
-<?php include("../navbar.php"); ?>
+
 <h1>🎥 Sessões</h1>
 
 <a href="cadastrar.php" class="btn-cadastrar">

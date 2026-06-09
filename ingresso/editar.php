@@ -59,7 +59,7 @@ $filmes = $conn->query(
 </head>
 
 <body>
-<?php include("../navbar.php"); ?>
+
 <div class="container">
 
 <h1> Editar Ingresso</h1>

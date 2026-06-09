@@ -21,13 +21,13 @@ $filmes = $conn->query(
     <title>Filmes - CineGibi</title>
 
     <link rel="stylesheet" href="filmes.css">
-    <link rel="stylesheet" href="../navbar.css">
+   
 
 
 </head>
 
 <body>
-<?php include("../navbar.php"); ?>
+
     <h1>Filmes</h1>
 
     <a href="cadastrar.php" class="btn-cadastrar">

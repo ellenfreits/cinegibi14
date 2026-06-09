@@ -45,7 +45,7 @@ if(isset($_POST['cliente'])){
     <link rel="stylesheet" href="ingresso.css">
 </head>
 <body>
-<?php include("../navbar.php"); ?>
+
 <div class="container">
 
 <h1>🎟️ Cadastrar Ingresso</h1>

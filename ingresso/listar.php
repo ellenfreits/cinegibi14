@@ -36,7 +36,7 @@ ORDER BY ingressos.id DESC
 </head>
 
 <body>
-<?php include("../navbar.php"); ?>
+
 <h1>🎟️ Ingressos</h1>
 
 <a class="btn-cadastrar" href="cadastrar.php">

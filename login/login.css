@@ -37,7 +37,7 @@ body {
     IMPORTANTE: salve a imagem que você mandou com o nome
     "fundo-login.png" na mesma pasta que o index.php
   */
-  background-image: url('fundo-login.png');
+  background-image: url('fundo-login.jpg');
   background-size: cover;
   background-position: center bottom;
   background-repeat: no-repeat;

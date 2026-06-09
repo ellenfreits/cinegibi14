@@ -51,7 +51,7 @@ $filme = $sql->fetch();
 </head>
 
 <body>
-<?php include("../navbar.php"); ?>
+
 <div class="container">
 
 <h1>Editar Filme</h1>
