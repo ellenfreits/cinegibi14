@@ -21,7 +21,7 @@ include("../login/protect.php");
 
     <header>
 
-        <h1>🎬 CineGibi</h1>
+        <h1> CineGibi</h1>
 
         <a href="../login/logout.php" class="btn-sair">
             Sair
@@ -34,7 +34,7 @@ include("../login/protect.php");
         <div class="boas-vindas">
 
         <h2>
-            ⭐ Painel Administrativo ⭐
+            ★ Painel Administrativo ★
         </h2>
 
         <p>
@@ -51,8 +51,6 @@ include("../login/protect.php");
 
             <a href="../filmes/listar.php" class="card">
 
-                <span class="icone">🎬</span>
-
                 <h3>Filmes</h3>
 
                 <p>
@@ -63,8 +61,6 @@ include("../login/protect.php");
 
             <a href="../sessoes/listar.php" class="card">
 
-                <span class="icone">🕒</span>
-
                 <h3>Sessões</h3>
 
                 <p>
@@ -74,8 +70,6 @@ include("../login/protect.php");
             </a>
 
             <a href="../ingresso/listar.php" class="card">
-
-                <span class="icone">🎟️</span>
 
                 <h3>Ingressos</h3>
 

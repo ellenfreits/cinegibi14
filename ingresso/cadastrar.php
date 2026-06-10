@@ -48,31 +48,20 @@ if(isset($_POST['cliente'])){
 
 <div class="container">
 
-<h1>🎟️ Cadastrar Ingresso</h1>
+<h1>✚ Cadastrar Ingresso</h1>
 
 <form class="form-card" method="POST">
 
 <label>Cliente</label>
 <input type="text" name="cliente" required>
 
-<?php
+<label>Filme</label>
 
-$sessoes = $conn->query("
-SELECT
-sessoes.id,
-sessoes.data_sessao,
-sessoes.horario,
-filmes.titulo
+<select name="filme_id" required>
 
-FROM sessoes
-
-INNER JOIN filmes
-ON filmes.id = sessoes.filme_id
-
-ORDER BY filmes.titulo
-")->fetchAll();
-
-?>
+<option value="" selected disabled hidden>
+Selecione um filme
+</option>
 
 <?php foreach($filmes as $filme): ?>
 
@@ -103,23 +92,22 @@ readonly>
     <option value="">Selecione</option>
 
     <option value="Dinheiro">
-        💵 Dinheiro
+       ⌲  Dinheiro
     </option>
 
     <option value="Pix">
-        📱 Pix
+       ⌲  Pix
     </option>
 
     <option value="Cartão de Débito">
-        💳 Cartão de Débito
+       ⌲  Cartão de Débito
     </option>
 
     <option value="Cartão de Crédito">
-        💳 Cartão de Crédito
+       ⌲  Cartão de Crédito
     </option>
 
 </select>
-
 
 <button class="btn-verde" type="submit">
 Salvar Ingresso
@@ -128,6 +116,7 @@ Salvar Ingresso
 </form>
 
 </div>
+
 <script>
 
 const quantidade = document.querySelector(
@@ -145,5 +134,6 @@ quantidade.addEventListener('input', () => {
 });
 
 </script>
+
 </body>
 </html>
