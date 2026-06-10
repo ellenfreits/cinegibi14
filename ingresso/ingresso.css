@@ -1,267 +1,309 @@
-@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;700;800&display=swap');
+/* ============================================================
+   CineGibi — CSS estilo HQ Turma da Mônica (versão caprichada)
+   Use o MESMO arquivo nos 3 CRUDs (filmes, ingressos, sessoes)
+   ============================================================ */
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+@import url('https://fonts.googleapis.com/css2?family=Bangers&family=Luckiest+Guy&family=Fredoka:wght@400;500;600;700&display=swap');
+
+/* ---------- Reset ---------- */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+/* ---------- Fundo de gibi (halftone + papel) ---------- */
+body {
+    font-family: 'Fredoka', system-ui, sans-serif;
+    color: #1a1a1a;
+    min-height: 100vh;
+    padding: 40px 20px 80px;
+    position: relative;
+    overflow-x: hidden;
+
+    background-color: #fff4d6;
+    background-image:
+        /* halftone pontilhado */
+        radial-gradient(circle at center, rgba(0,0,0,0.18) 1.2px, transparent 1.6px),
+        /* manchas coloridas estilo página de HQ */
+        radial-gradient(circle at 12% 18%, rgba(255, 59, 92, 0.25) 0, transparent 28%),
+        radial-gradient(circle at 88% 22%, rgba(58, 157, 255, 0.25) 0, transparent 30%),
+        radial-gradient(circle at 75% 85%, rgba(255, 217, 61, 0.35) 0, transparent 32%),
+        radial-gradient(circle at 18% 82%, rgba(78, 201, 107, 0.22) 0, transparent 30%);
+    background-size: 14px 14px, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
 }
 
-body{
-
-    font-family:'Baloo 2', cursive;
-
-    min-height:100vh;
-
-    background:
-    linear-gradient(
-        rgba(255,255,255,.2),
-        rgba(255,255,255,.2)
-    ),
-    url('../login/fundo-login.png');
-
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
-
-    padding:40px;
+/* Linhas de velocidade no canto */
+body::before {
+    content: "";
+    position: fixed;
+    top: -40px; left: -40px;
+    width: 260px; height: 260px;
+    background: repeating-linear-gradient(
+        -45deg,
+        #1a1a1a 0 4px,
+        transparent 4px 16px
+    );
+    -webkit-mask-image: radial-gradient(circle at top left, black 0%, transparent 70%);
+            mask-image: radial-gradient(circle at top left, black 0%, transparent 70%);
+    opacity: 0.55;
+    pointer-events: none;
+    z-index: 0;
+}
+body::after {
+    content: "";
+    position: fixed;
+    bottom: -40px; right: -40px;
+    width: 280px; height: 280px;
+    background: repeating-linear-gradient(
+        45deg,
+        #ff3b5c 0 4px,
+        transparent 4px 18px
+    );
+    -webkit-mask-image: radial-gradient(circle at bottom right, black 0%, transparent 70%);
+            mask-image: radial-gradient(circle at bottom right, black 0%, transparent 70%);
+    opacity: 0.4;
+    pointer-events: none;
+    z-index: 0;
 }
 
-/* Container */
+/* ---------- Título estrelado tipo "POW!" ---------- */
+h1 {
+    position: relative;
+    z-index: 1;
+    font-family: 'Luckiest Guy', 'Bangers', Impact, sans-serif;
+    font-size: clamp(2.5rem, 6vw, 4.2rem);
+    color: #ffd93d;
+    text-align: center;
+    letter-spacing: 3px;
+    margin: 10px auto 40px;
+    padding: 18px 40px;
+    width: fit-content;
+    max-width: 90%;
+    -webkit-text-stroke: 2px #1a1a1a;
+    text-shadow:
+        4px 4px 0 #ff3b5c,
+        8px 8px 0 #1a1a1a;
+    transform: rotate(-3deg);
 
-.container{
+    /* estrela / explosão atrás do título */
+    background: #fff;
+    border: 4px solid #1a1a1a;
+    border-radius: 30px 8px 30px 8px / 8px 30px 8px 30px;
+    box-shadow:
+        10px 10px 0 #1a1a1a,
+        inset 0 0 0 8px #fff,
+        inset 0 0 0 10px #ff3b5c;
+}
+h1::before, h1::after {
+    content: "★";
+    position: absolute;
+    font-family: 'Luckiest Guy', sans-serif;
+    -webkit-text-stroke: 2px #1a1a1a;
+    color: #3a9dff;
+    font-size: 2rem;
+    text-shadow: 3px 3px 0 #1a1a1a;
+}
+h1::before { top: -22px; left: -18px; transform: rotate(-20deg); }
+h1::after  { bottom: -24px; right: -20px; transform: rotate(15deg); color: #4ec96b; }
 
-    max-width:900px;
-
-    margin:auto;
+/* ---------- Container ---------- */
+.container {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    margin: 0 auto;
 }
 
-/* Título */
-
-h1{
-
-    text-align:center;
-
-    font-size:3rem;
-
-    color:#e8231a;
-
-    text-shadow:4px 4px #000;
-
-    margin-bottom:35px;
+/* ---------- Form como "painel de gibi" ---------- */
+.form-card {
+    background: #ffffff;
+    border: 5px solid #1a1a1a;
+    border-radius: 24px;
+    padding: 36px 32px;
+    box-shadow:
+        10px 10px 0 #1a1a1a,
+        10px 10px 0 4px #ff3b5c;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    position: relative;
+}
+/* "rabinho" de balão de fala */
+.form-card::before {
+    content: "";
+    position: absolute;
+    bottom: -28px;
+    left: 60px;
+    width: 0; height: 0;
+    border-left: 22px solid transparent;
+    border-right: 22px solid transparent;
+    border-top: 30px solid #ffffff;
+    filter: drop-shadow(0 4px 0 #1a1a1a);
+}
+.form-card::after {
+    content: "";
+    position: absolute;
+    bottom: -34px;
+    left: 56px;
+    width: 0; height: 0;
+    border-left: 26px solid transparent;
+    border-right: 26px solid transparent;
+    border-top: 34px solid #1a1a1a;
+    z-index: -1;
 }
 
-/* Formulário */
-
-.form-card{
-
-    background:white;
-
-    max-width:650px;
-
-    margin:auto;
-
-    padding:35px;
-
-    border:5px solid #000;
-
-    border-radius:25px;
-
-    box-shadow:10px 10px #000;
+.form-card label {
+    font-family: 'Bangers', sans-serif;
+    letter-spacing: 1.5px;
+    font-size: 1.25rem;
+    color: #1a1a1a;
+    margin-top: 10px;
+    display: inline-block;
+    padding: 2px 10px;
+    background: #ffd93d;
+    border: 2px solid #1a1a1a;
+    border-radius: 8px;
+    align-self: flex-start;
+    transform: rotate(-1deg);
+    box-shadow: 3px 3px 0 #1a1a1a;
 }
 
-/* Labels */
-
-.form-card label{
-
-    display:block;
-
-    margin-top:15px;
-
-    margin-bottom:8px;
-
-    font-size:1.1rem;
-
-    font-weight:700;
-
-    color:#222;
+.form-card input,
+.form-card select,
+.form-card textarea {
+    font-family: 'Fredoka', sans-serif;
+    font-size: 1.05rem;
+    padding: 14px 16px;
+    border: 3px solid #1a1a1a;
+    border-radius: 14px;
+    background: #fffef0;
+    box-shadow: inset 3px 3px 0 rgba(0,0,0,0.06);
+    transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+}
+.form-card input:focus,
+.form-card select:focus,
+.form-card textarea:focus {
+    outline: none;
+    background: #fff;
+    transform: translate(-2px, -2px);
+    box-shadow:
+        4px 4px 0 #ffd93d,
+        inset 0 0 0 1px #1a1a1a;
 }
 
-/* Inputs */
-
-.form-card input{
-
-    width:100%;
-
-    padding:14px;
-
-    border:3px solid #000;
-
-    border-radius:15px;
-
-    font-size:1rem;
-
-    font-family:'Baloo 2', cursive;
-
-    margin-bottom:10px;
+/* ---------- Botões "comic" ---------- */
+button,
+.btn-verde,
+.btn-azul,
+.btn-cadastrar,
+.btn-editar,
+.btn-excluir {
+    font-family: 'Bangers', 'Impact', sans-serif;
+    letter-spacing: 2px;
+    font-size: 1.15rem;
+    padding: 14px 26px;
+    border: 4px solid #1a1a1a;
+    border-radius: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    color: #fff;
+    text-shadow: 2px 2px 0 rgba(0,0,0,0.35);
+    box-shadow: 6px 6px 0 #1a1a1a;
+    transition: transform 0.1s ease, box-shadow 0.1s ease;
+    position: relative;
+}
+button:hover, .btn-verde:hover, .btn-azul:hover,
+.btn-cadastrar:hover, .btn-editar:hover, .btn-excluir:hover {
+    transform: translate(-3px, -3px) rotate(-1deg);
+    box-shadow: 9px 9px 0 #1a1a1a;
+}
+button:active, .btn-verde:active, .btn-azul:active {
+    transform: translate(3px, 3px);
+    box-shadow: 2px 2px 0 #1a1a1a;
 }
 
-.form-card input:focus{
+.btn-verde  { background: #4ec96b; margin-top: 18px; align-self: center; }
+.btn-azul   { background: #3a9dff; margin-top: 18px; align-self: center; }
 
-    outline:none;
+.btn-cadastrar {
+    background: #ffd93d;
+    color: #1a1a1a;
+    text-shadow: none;
+    margin: 0 auto 30px;
+    display: block;
+    width: fit-content;
+    font-size: 1.3rem;
+    padding: 16px 32px;
+    transform: rotate(-2deg);
+    position: relative;
+    z-index: 1;
+}
+.btn-cadastrar:hover { transform: rotate(-2deg) translate(-3px, -3px); }
 
-    border-color:#1e88e5;
+.btn-editar  { background: #3a9dff; padding: 8px 14px; font-size: 0.95rem; margin-right: 6px; box-shadow: 3px 3px 0 #1a1a1a; }
+.btn-excluir { background: #ff3b5c; padding: 8px 14px; font-size: 0.95rem; box-shadow: 3px 3px 0 #1a1a1a; }
+.btn-editar:hover, .btn-excluir:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 #1a1a1a; }
+
+/* ---------- Tabela = painel de quadrinho ---------- */
+table {
+    position: relative;
+    z-index: 1;
+    width: 95%;
+    max-width: 1100px;
+    margin: 0 auto;
+    border-collapse: separate;
+    border-spacing: 0;
+    background: #fff;
+    border: 5px solid #1a1a1a;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow:
+        10px 10px 0 #1a1a1a,
+        10px 10px 0 4px #3a9dff;
 }
 
-/* Botão verde */
+th {
+    background: linear-gradient(180deg, #ff3b5c 0%, #d61f3f 100%);
+    color: #ffd93d;
+    font-family: 'Luckiest Guy', 'Bangers', sans-serif;
+    font-size: 1.25rem;
+    letter-spacing: 2px;
+    padding: 18px 14px;
+    text-align: left;
+    border-bottom: 5px solid #1a1a1a;
+    text-shadow: 2px 2px 0 #1a1a1a;
+    -webkit-text-stroke: 1px #1a1a1a;
+    position: relative;
+}
+th + th { border-left: 2px dashed rgba(0,0,0,0.25); }
 
-.btn-verde{
+td {
+    padding: 16px 14px;
+    border-bottom: 2px dashed #c7c7c7;
+    font-size: 1rem;
+    font-weight: 500;
+}
+tr:last-child td { border-bottom: none; }
+tr:nth-child(even) td { background: #fffae0; }
+tr:hover td { background: #e3f2ff; }
 
-    width:100%;
-
-    margin-top:20px;
-
-    padding:15px;
-
-    background:#43a047;
-
-    color:white;
-
-    border:none;
-
-    border-radius:15px;
-
-    font-size:1.2rem;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    box-shadow:5px 5px #000;
+/* primeira coluna (ID) destacada como "número de página" */
+td:first-child {
+    font-family: 'Bangers', sans-serif;
+    font-size: 1.25rem;
+    color: #ff3b5c;
+    -webkit-text-stroke: 0.5px #1a1a1a;
+    width: 60px;
 }
 
-.btn-verde:hover{
-
-    transform:translate(-2px,-2px);
-}
-
-/* Botão azul */
-
-.btn-azul{
-
-    width:100%;
-
-    margin-top:20px;
-
-    padding:15px;
-
-    background:#1e88e5;
-
-    color:white;
-
-    border:none;
-
-    border-radius:15px;
-
-    font-size:1.2rem;
-
-    font-weight:bold;
-
-    cursor:pointer;
-
-    box-shadow:5px 5px #000;
-}
-
-/* Lista */
-
-.btn-cadastrar{
-
-    display:inline-block;
-
-    background:#1e88e5;
-
-    color:white;
-
-    text-decoration:none;
-
-    padding:12px 20px;
-
-    border-radius:15px;
-
-    margin-bottom:20px;
-
-    font-size:1.1rem;
-
-    box-shadow:4px 4px #000;
-}
-
-/* Tabela */
-
-table{
-
-    width:100%;
-
-    background:white;
-
-    border-collapse:collapse;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    box-shadow:10px 10px #000;
-}
-
-th{
-
-    background:#e8231a;
-
-    color:white;
-
-    padding:15px;
-
-    font-size:1.1rem;
-}
-
-td{
-
-    padding:15px;
-
-    text-align:center;
-
-    border-bottom:1px solid #ddd;
-}
-
-tr:hover{
-
-    background:#fff8cc;
-}
-
-/* Botões ações */
-
-.btn-editar{
-
-    background:#1e88e5;
-
-    color:white;
-
-    text-decoration:none;
-
-    padding:8px 12px;
-
-    border-radius:10px;
-
-    margin-right:5px;
-}
-
-.btn-excluir{
-
-    background:#e8231a;
-
-    color:white;
-
-    text-decoration:none;
-
-    padding:8px 12px;
-
-    border-radius:10px;
+/* ---------- Responsivo ---------- */
+@media (max-width: 720px) {
+    h1 { font-size: 2.2rem; padding: 14px 24px; }
+    .form-card { padding: 24px 20px; }
+    table { font-size: 0.85rem; width: 100%; }
+    th, td { padding: 10px 8px; }
+    th { font-size: 1rem; }
+    .btn-editar, .btn-excluir {
+        display: block;
+        margin: 4px 0;
+        text-align: center;
+    }
 }

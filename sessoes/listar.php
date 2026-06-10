@@ -34,10 +34,10 @@ ORDER BY data_sessao
 
 <body>
 
-<h1>🎥 Sessões</h1>
+<h1>📽 Sessões</h1>
 
 <a href="cadastrar.php" class="btn-cadastrar">
-➕ Nova Sessão
+✚ Nova Sessão
 </a>
 
 <table>
@@ -70,14 +70,14 @@ ORDER BY data_sessao
 <a
 class="btn-editar"
 href="editar.php?id=<?= $sessao['id'] ?>">
-✏️ Editar
+✎ Editar
 </a>
 
 <a
 class="btn-excluir"
 href="deletar.php?id=<?= $sessao['id'] ?>"
 onclick="return confirm('Excluir sessão?')">
-🗑️ Excluir
+⌫ Excluir
 </a>
 
 </td>

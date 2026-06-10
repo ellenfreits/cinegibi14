@@ -41,7 +41,7 @@ if(isset($_POST['titulo'])){
 
 <div class="container">
 
-<h1>🎬 Cadastrar Filme</h1>
+<h1> ✚Cadastrar Filme</h1>
 
 <form class="form-card" method="POST">
 

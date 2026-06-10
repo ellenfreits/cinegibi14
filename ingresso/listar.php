@@ -37,7 +37,7 @@ ORDER BY ingressos.id DESC
 
 <body>
 
-<h1>🎟️ Ingressos</h1>
+<h1>📽 Ingressos</h1>
 
 <a class="btn-cadastrar" href="cadastrar.php">
 ➕ Novo Ingresso
@@ -77,12 +77,12 @@ ORDER BY ingressos.id DESC
 
         <a class="btn-editar"
         href="editar.php?id=<?= $ingresso['id'] ?>">
-            ✏️ Editar
+            ✎ Editar
         </a>
 
         <a class="btn-excluir"
         href="deletar.php?id=<?= $ingresso['id'] ?>">
-            🗑️ Excluir
+            ⌫ Excluir
         </a>
 
     </td>

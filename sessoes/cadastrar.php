@@ -52,7 +52,7 @@ if(isset($_POST['filme_id'])){
 
 <div class="container">
 
-<h1>🎥 Cadastrar Sessão</h1>
+<h1>✚ Cadastrar Sessão</h1>
 
 <form class="form-card" method="POST">
 

@@ -64,7 +64,7 @@ $sessao = $sql->fetch();
 
 <div class="container">
 
-<h1>✏️ Editar Sessão</h1>
+<h1> Editar Sessão</h1>
 
 <form class="form-card" method="POST">
 

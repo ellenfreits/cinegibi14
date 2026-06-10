@@ -116,22 +116,22 @@ required>
 
     <option value="Dinheiro"
         <?= $ingresso['forma_pagamento'] == 'Dinheiro' ? 'selected' : '' ?>>
-        💵 Dinheiro
+        ⌲ Dinheiro
     </option>
 
     <option value="Pix"
         <?= $ingresso['forma_pagamento'] == 'Pix' ? 'selected' : '' ?>>
-        📱 Pix
+        ⌲ Pix
     </option>
 
     <option value="Cartão de Débito"
         <?= $ingresso['forma_pagamento'] == 'Cartão de Débito' ? 'selected' : '' ?>>
-        💳 Cartão de Débito
+        ⌲ Cartão de Débito
     </option>
 
     <option value="Cartão de Crédito"
         <?= $ingresso['forma_pagamento'] == 'Cartão de Crédito' ? 'selected' : '' ?>>
-        💳 Cartão de Crédito
+        ⌲ Cartão de Crédito
     </option>
 
 </select>

@@ -28,10 +28,10 @@ $filmes = $conn->query(
 
 <body>
 
-    <h1>Filmes</h1>
+    <h1>📽 Filmes</h1>
 
     <a href="cadastrar.php" class="btn-cadastrar">
-        +   Cadastrar Filme
+        ✚   Cadastrar Filme
     </a>
 
 <table>
@@ -64,14 +64,14 @@ $filmes = $conn->query(
 <a
 class="btn-editar"
 href="editar.php?id=<?= $filme['id'] ?>">
-✏️ Editar
+✎ Editar
 </a>
 
 <a
 class="btn-excluir"
 href="deletar.php?id=<?= $filme['id'] ?>"
 onclick="return confirm('Excluir filme?')">
-🗑️ Excluir
+⌫ Excluir
 </a>
 
 </td>
