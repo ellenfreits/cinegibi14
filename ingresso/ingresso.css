@@ -1,14 +1,9 @@
-/* ============================================================
-   CineGibi — CSS estilo HQ Turma da Mônica (versão caprichada)
-   Use o MESMO arquivo nos 3 CRUDs (filmes, ingressos, sessoes)
-   ============================================================ */
 
 @import url('https://fonts.googleapis.com/css2?family=Bangers&family=Luckiest+Guy&family=Fredoka:wght@400;500;600;700&display=swap');
 
-/* ---------- Reset ---------- */
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* ---------- Fundo de gibi (halftone + papel) ---------- */
+
 body {
     font-family: 'Fredoka', system-ui, sans-serif;
     color: #1a1a1a;
@@ -19,9 +14,9 @@ body {
 
     background-color: #fff4d6;
     background-image:
-        /* halftone pontilhado */
+
         radial-gradient(circle at center, rgba(0,0,0,0.18) 1.2px, transparent 1.6px),
-        /* manchas coloridas estilo página de HQ */
+
         radial-gradient(circle at 12% 18%, rgba(255, 59, 92, 0.25) 0, transparent 28%),
         radial-gradient(circle at 88% 22%, rgba(58, 157, 255, 0.25) 0, transparent 30%),
         radial-gradient(circle at 75% 85%, rgba(255, 217, 61, 0.35) 0, transparent 32%),
@@ -29,7 +24,7 @@ body {
     background-size: 14px 14px, 100% 100%, 100% 100%, 100% 100%, 100% 100%;
 }
 
-/* Linhas de velocidade no canto */
+
 body::before {
     content: "";
     position: fixed;
@@ -63,7 +58,6 @@ body::after {
     z-index: 0;
 }
 
-/* ---------- Título estrelado tipo "POW!" ---------- */
 h1 {
     position: relative;
     z-index: 1;
@@ -82,7 +76,7 @@ h1 {
         8px 8px 0 #1a1a1a;
     transform: rotate(-3deg);
 
-    /* estrela / explosão atrás do título */
+
     background: #fff;
     border: 4px solid #1a1a1a;
     border-radius: 30px 8px 30px 8px / 8px 30px 8px 30px;
@@ -103,7 +97,7 @@ h1::before, h1::after {
 h1::before { top: -22px; left: -18px; transform: rotate(-20deg); }
 h1::after  { bottom: -24px; right: -20px; transform: rotate(15deg); color: #4ec96b; }
 
-/* ---------- Container ---------- */
+
 .container {
     position: relative;
     z-index: 1;
@@ -111,7 +105,7 @@ h1::after  { bottom: -24px; right: -20px; transform: rotate(15deg); color: #4ec9
     margin: 0 auto;
 }
 
-/* ---------- Form como "painel de gibi" ---------- */
+
 .form-card {
     background: #ffffff;
     border: 5px solid #1a1a1a;
@@ -125,7 +119,7 @@ h1::after  { bottom: -24px; right: -20px; transform: rotate(15deg); color: #4ec9
     gap: 10px;
     position: relative;
 }
-/* "rabinho" de balão de fala */
+
 .form-card::before {
     content: "";
     position: absolute;
@@ -188,7 +182,7 @@ h1::after  { bottom: -24px; right: -20px; transform: rotate(15deg); color: #4ec9
         inset 0 0 0 1px #1a1a1a;
 }
 
-/* ---------- Botões "comic" ---------- */
+
 button,
 .btn-verde,
 .btn-azul,
@@ -242,7 +236,7 @@ button:active, .btn-verde:active, .btn-azul:active {
 .btn-excluir { background: #ff3b5c; padding: 8px 14px; font-size: 0.95rem; box-shadow: 3px 3px 0 #1a1a1a; }
 .btn-editar:hover, .btn-excluir:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 #1a1a1a; }
 
-/* ---------- Tabela = painel de quadrinho ---------- */
+
 table {
     position: relative;
     z-index: 1;
@@ -285,7 +279,7 @@ tr:last-child td { border-bottom: none; }
 tr:nth-child(even) td { background: #fffae0; }
 tr:hover td { background: #e3f2ff; }
 
-/* primeira coluna (ID) destacada como "número de página" */
+
 td:first-child {
     font-family: 'Bangers', sans-serif;
     font-size: 1.25rem;
@@ -294,7 +288,6 @@ td:first-child {
     width: 60px;
 }
 
-/* ---------- Responsivo ---------- */
 @media (max-width: 720px) {
     h1 { font-size: 2.2rem; padding: 14px 24px; }
     .form-card { padding: 24px 20px; }
